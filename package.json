@@ -1,0 +1,10 @@
+{
+  "name": "clock-launcher-holidays",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "japanese-holidays": "^1.0.6"
+  }
+}

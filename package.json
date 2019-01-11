@@ -5,6 +5,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "iconv-lite": "^0.4.24",
     "japanese-holidays": "^1.0.6"
   }
 }

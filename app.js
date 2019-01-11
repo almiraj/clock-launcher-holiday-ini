@@ -12,34 +12,16 @@ if (Number(toYear) < Number(fromYear)) {
   process.exit(0);
 }
 
-/**
- * @param {number} year
- * @return {object} { 1=[], 2=[], ..., 31=[] }
- */
-const createMonthMap = function(year) {
-  const monthMap = {};
-  for (let m = 1; m <= 12; m++) {
-    const date = new Date(year, m);
-    date.setUTCDate(0);
-    date.setUTCHours(0);
-    const lastDate = date.getUTCDate();
-    for (let d = 1; d <= lastDate; d++) {
-      monthMap[d] = [];
-    }
-  }
-  return monthMap;
-};
-
 const yearBlocks = [];
 for (var year = toYear; year >= fromYear; year--) {
   var yearBlock = [];
   yearBlock.push('[' + year + ']');
-
-  const monthMap = createMonthMap(year);
-  JapaneseHolidays.getHolidaysOf(year).forEach(holiday => {
+  const holidays = JapaneseHolidays.getHolidaysOf(year);
+  const monthMap = {};
+  holidays.forEach(holiday => {
+    monthMap[holiday.month] = (monthMap[holiday.month] || []);
     monthMap[holiday.month].push(('0' + holiday.date).slice(-2));
   });
-
   for (var month in monthMap) {
     yearBlock.push(month + '=' + monthMap[month].join(','));
   }

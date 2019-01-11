@@ -32,5 +32,6 @@ const contentHead = '[Format]\r\n月=休日1,休日1,休日3,…\r\n1日の場�
 const content = contentHead + yearBlocks.map(b => b.join('\r\n')).join('\r\n\r\n') + '\r\n';
 
 const writer = fs.createWriteStream('./dest/holiday.ini');
-writer.write(iconv.encode(content, "Shift_JIS"));
+//writer.write(iconv.encode(content, "Shift_JIS"));
+writer.write(iconv.encode(content, "UTF-8"));
 writer.end();

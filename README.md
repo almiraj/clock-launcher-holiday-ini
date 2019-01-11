@@ -1,4 +1,4 @@
-# clock-launcher-holidays
+# clock-launcher-holiday-ini
 holiday.ini generator for ClockLauncher
 
 - USAGE

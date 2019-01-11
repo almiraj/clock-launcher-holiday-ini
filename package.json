@@ -1,5 +1,5 @@
 {
-  "name": "clock-launcher-holidays",
+  "name": "clock-launcher-holiday-ini",
   "version": "1.0.0",
   "scripts": {
     "start": "node app.js"
